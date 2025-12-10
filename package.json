@@ -22,7 +22,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report"
   },
   "dependencies": {
     "@selemondev/vue3-marquee": "^0.0.8",
@@ -41,6 +45,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@playwright/test": "^1.57.0",
     "@types/node": "^20.14.5",
     "@vitejs/plugin-vue": "^5.0.5",
     "autoprefixer": "^10.4.19",

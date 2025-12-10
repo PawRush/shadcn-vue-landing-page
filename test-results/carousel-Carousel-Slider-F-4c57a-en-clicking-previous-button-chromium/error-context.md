@@ -1,0 +1,616 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - link "ShadcnVue" [ref=e4] [cursor=pointer]:
+      - /url: /
+      - img [ref=e5]
+      - text: ShadcnVue
+    - navigation "Main" [ref=e8]:
+      - list [ref=e10]:
+        - listitem [ref=e11]:
+          - button "Features" [ref=e12] [cursor=pointer]:
+            - text: Features
+            - img [ref=e13]
+        - listitem [ref=e15]:
+          - link "Testimonials" [ref=e16] [cursor=pointer]:
+            - /url: "#testimonials"
+          - link "Team" [ref=e17] [cursor=pointer]:
+            - /url: "#team"
+          - link "Contact" [ref=e18] [cursor=pointer]:
+            - /url: "#contact"
+          - link "FAQ" [ref=e19] [cursor=pointer]:
+            - /url: "#faq"
+    - generic [ref=e20]:
+      - button "Toggle theme" [ref=e21] [cursor=pointer]:
+        - img [ref=e23]
+        - generic [ref=e25]: Toggle theme
+      - link "View on GitHub" [ref=e26] [cursor=pointer]:
+        - /url: https://github.com/leoMirandaa/shadcn-vue-landing-page.git
+        - img [ref=e27]
+  - generic [ref=e30]:
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - generic [ref=e34]: New
+        - generic [ref=e35]: Design is out now!
+      - heading "Experience the Shadcn/Vue landing page" [level=1] [ref=e37]
+      - paragraph [ref=e38]: We're more than just a tool, we're a community of passionate creators. Get access to exclusive resources, tutorials, and support.
+      - generic [ref=e39]:
+        - button "Get Started" [ref=e40] [cursor=pointer]:
+          - text: Get Started
+          - img [ref=e41]
+        - link "Github respository" [ref=e43] [cursor=pointer]:
+          - /url: https://github.com/leoMirandaa/shadcn-vue-landing-page.git
+    - img "dashboard using shadcn-vue" [ref=e46]
+  - generic [ref=e48]:
+    - heading "Our Platinum Sponsors" [level=2] [ref=e49]
+    - generic [ref=e51]:
+      - generic [ref=e53]:
+        - generic [ref=e55]:
+          - img [ref=e56]
+          - text: Acmebrand
+        - generic [ref=e59]:
+          - img [ref=e60]
+          - text: Acmelogo
+        - generic [ref=e65]:
+          - img [ref=e66]
+          - text: Acmesponsor
+        - generic [ref=e69]:
+          - img [ref=e70]
+          - text: Acmeipsum
+        - generic [ref=e73]:
+          - img [ref=e74]
+          - text: Acme
+        - generic [ref=e79]:
+          - img [ref=e80]
+          - text: Accmee
+        - generic [ref=e83]:
+          - img [ref=e84]
+          - text: Acmetech
+      - generic [ref=e90]:
+        - generic [ref=e92]:
+          - img [ref=e93]
+          - text: Acmebrand
+        - generic [ref=e96]:
+          - img [ref=e97]
+          - text: Acmelogo
+        - generic [ref=e102]:
+          - img [ref=e103]
+          - text: Acmesponsor
+        - generic [ref=e106]:
+          - img [ref=e107]
+          - text: Acmeipsum
+        - generic [ref=e110]:
+          - img [ref=e111]
+          - text: Acme
+        - generic [ref=e116]:
+          - img [ref=e117]
+          - text: Accmee
+        - generic [ref=e120]:
+          - img [ref=e121]
+          - text: Acmetech
+  - generic [ref=e127]:
+    - generic [ref=e128]:
+      - heading "Benefits" [level=2] [ref=e129]
+      - heading "Your Shortcut to Success" [level=2] [ref=e130]
+      - paragraph [ref=e131]: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non ducimus reprehenderit architecto rerum similique facere odit deleniti necessitatibus quo quae.
+    - generic [ref=e132]:
+      - generic [ref=e133]:
+        - generic [ref=e134]:
+          - generic [ref=e135]:
+            - img [ref=e136]
+            - generic [ref=e139]: "01"
+          - heading "Build Brand Trust" [level=3] [ref=e140]
+        - generic [ref=e141]: Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.
+      - generic [ref=e142]:
+        - generic [ref=e143]:
+          - generic [ref=e144]:
+            - img [ref=e145]
+            - generic [ref=e148]: "02"
+          - heading "More Leads" [level=3] [ref=e149]
+        - generic [ref=e150]: Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, natus consectetur.
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - generic [ref=e153]:
+            - img [ref=e154]
+            - generic [ref=e157]: "03"
+          - heading "Higher Conversions" [level=3] [ref=e158]
+        - generic [ref=e159]: Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus consectetur. A odio velit cum aliquam
+      - generic [ref=e160]:
+        - generic [ref=e161]:
+          - generic [ref=e162]:
+            - img [ref=e163]
+            - generic [ref=e165]: "04"
+          - heading "Test Marketing Ideas" [level=3] [ref=e166]
+        - generic [ref=e167]: Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.
+  - generic [ref=e168]:
+    - heading "Features" [level=2] [ref=e169]
+    - heading "What Makes Us Different" [level=2] [ref=e170]
+    - heading "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem fugiat, odit similique quasi sint reiciendis quidem iure veritatis optio facere tenetur." [level=3] [ref=e171]
+    - generic [ref=e172]:
+      - generic [ref=e174]:
+        - generic [ref=e175]:
+          - img [ref=e177]
+          - heading "Mobile Friendly" [level=3] [ref=e180]
+        - generic [ref=e181]: Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, consectetur.
+      - generic [ref=e183]:
+        - generic [ref=e184]:
+          - img [ref=e186]
+          - heading "Social Proof" [level=3] [ref=e189]
+        - generic [ref=e190]: Lorem ipsum dolor sit amet consectetur. Natus consectetur, odio ea accusamus aperiam.
+      - generic [ref=e192]:
+        - generic [ref=e193]:
+          - img [ref=e195]
+          - heading "Targeted Content" [level=3] [ref=e199]
+        - generic [ref=e200]: Lorem ipsum dolor sit amet consectetur adipisicing elit. odio ea accusamus aperiam.
+      - generic [ref=e202]:
+        - generic [ref=e203]:
+          - img [ref=e205]
+          - heading "Strong Visuals" [level=3] [ref=e208]
+        - generic [ref=e209]: Lorem elit. A odio velit cum aliquam. Natus consectetur dolores, odio ea accusamus aperiam.
+      - generic [ref=e211]:
+        - generic [ref=e212]:
+          - img [ref=e214]
+          - heading "Clear CTA" [level=3] [ref=e220]
+        - generic [ref=e221]: Lorem ipsum dolor sit amet consectetur adipisicing. odio ea accusamus consectetur.
+      - generic [ref=e223]:
+        - generic [ref=e224]:
+          - img [ref=e226]
+          - heading "Clear Headline" [level=3] [ref=e229]
+        - generic [ref=e230]: Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur.
+  - generic [ref=e231]:
+    - heading "Services" [level=2] [ref=e232]
+    - heading "Grow Your Business" [level=2] [ref=e233]
+    - heading "From marketing and sales to operations and strategy, we have the expertise to help you achieve your goals." [level=3] [ref=e234]
+    - generic [ref=e235]:
+      - generic [ref=e238]:
+        - heading "Custom Domain Integration" [level=3] [ref=e239]
+        - paragraph [ref=e240]: Lorem ipsum dolor sit, amet consectetur adipisicing elit adipisicing.
+      - generic [ref=e243]:
+        - heading "Social Media Integrations" [level=3] [ref=e244]
+        - paragraph [ref=e245]: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae, dicta.
+      - generic [ref=e248]:
+        - heading "Email Marketing Integrations" [level=3] [ref=e249]
+        - paragraph [ref=e250]: Lorem dolor sit amet adipisicing.
+      - generic [ref=e252]:
+        - generic [ref=e253]:
+          - heading "SEO Optimization" [level=3] [ref=e254]
+          - paragraph [ref=e255]: Lorem ipsum dolor sit amet consectetur.
+        - generic [ref=e256]: PRO
+  - generic [ref=e257]:
+    - generic [ref=e258]:
+      - heading "How It Works" [level=2] [ref=e259]
+      - heading "Step-by-Step Process" [level=2] [ref=e260]
+    - generic [ref=e261]:
+      - generic [ref=e262]:
+        - generic [ref=e263]:
+          - generic [ref=e264]:
+            - generic [ref=e266]: Contribute
+            - heading "Make a Difference with Every Contribution" [level=3] [ref=e267]
+          - generic [ref=e268]: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem fugiat, quasi sint reiciendis quidem iure.
+        - img "Image describing Make a Difference with Every Contribution" [ref=e269]
+      - generic [ref=e271]:
+        - generic [ref=e272]:
+          - generic [ref=e273]:
+            - generic [ref=e275]: Discover
+            - heading "Create an Impact with Every Choice" [level=3] [ref=e276]
+          - generic [ref=e277]: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem fugiat, sint reiciendis quidem iure veritatis optio facere tenetur.
+        - img "Image describing Create an Impact with Every Choice" [ref=e278]
+      - generic [ref=e280]:
+        - generic [ref=e281]:
+          - generic [ref=e282]:
+            - generic [ref=e284]: Innovate
+            - heading "Make Every Action Count" [level=3] [ref=e285]
+          - generic [ref=e286]: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem fugiat, odit similique quasi sint.
+        - img "Image describing Make Every Action Count" [ref=e287]
+      - generic [ref=e289]:
+        - generic [ref=e290]:
+          - generic [ref=e291]:
+            - generic [ref=e293]: Collaborate
+            - heading "Tackle this challenge together" [level=3] [ref=e294]
+          - generic [ref=e295]: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem fugiat, quasi sint reiciendis quidem iure.
+        - img "Image describing Tackle this challenge together" [ref=e296]
+  - generic [ref=e298]:
+    - generic [ref=e299]:
+      - heading "Testimonials" [level=2] [ref=e300]
+      - heading "Hear What Our 1000+ Clients Say" [level=2] [ref=e301]
+    - region [ref=e302]:
+      - generic [ref=e304]:
+        - group [ref=e305]:
+          - generic [ref=e306]:
+            - generic [ref=e307]:
+              - generic [ref=e308]:
+                - img [ref=e309]
+                - img [ref=e311]
+                - img [ref=e313]
+                - img [ref=e315]
+                - img [ref=e317]
+              - text: "\"Wow Vue + Shadcn-Vue is awesome!. This template lets me change colors, fonts and images to match my brand identity. \""
+            - generic [ref=e320]:
+              - img "@radix-vue" [ref=e322]
+              - generic [ref=e323]:
+                - heading "John Doe" [level=3] [ref=e324]
+                - paragraph [ref=e325]: Product Manager
+        - group [ref=e326]:
+          - generic [ref=e327]:
+            - generic [ref=e328]:
+              - generic [ref=e329]:
+                - img [ref=e330]
+                - img [ref=e332]
+                - img [ref=e334]
+                - img [ref=e336]
+                - img [ref=e338]
+              - text: "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. \""
+            - generic [ref=e341]:
+              - img "@radix-vue" [ref=e343]
+              - generic [ref=e344]:
+                - heading "Sophia Collins" [level=3] [ref=e345]
+                - paragraph [ref=e346]: Cybersecurity Analyst
+        - group [ref=e347]:
+          - generic [ref=e348]:
+            - generic [ref=e349]:
+              - generic [ref=e350]:
+                - img [ref=e351]
+                - img [ref=e353]
+                - img [ref=e355]
+                - img [ref=e357]
+                - img [ref=e359]
+              - text: "\"Lorem ipsum dolor sit amet,exercitation. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\""
+            - generic [ref=e362]:
+              - img "@radix-vue" [ref=e364]
+              - generic [ref=e365]:
+                - heading "Adam Johnson" [level=3] [ref=e366]
+                - paragraph [ref=e367]: Chief Technology Officer
+        - group [ref=e368]:
+          - generic [ref=e369]:
+            - generic [ref=e370]:
+              - generic [ref=e371]:
+                - img [ref=e372]
+                - img [ref=e374]
+                - img [ref=e376]
+                - img [ref=e378]
+                - img [ref=e380]
+              - text: "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod labore et dolore magna aliqua. Ut enim ad minim veniam.\""
+            - generic [ref=e383]:
+              - img "@radix-vue" [ref=e385]
+              - generic [ref=e386]:
+                - heading "Ethan Parker" [level=3] [ref=e387]
+                - paragraph [ref=e388]: Data Scientist
+        - group [ref=e389]:
+          - generic [ref=e390]:
+            - generic [ref=e391]:
+              - generic [ref=e392]:
+                - img [ref=e393]
+                - img [ref=e395]
+                - img [ref=e397]
+                - img [ref=e399]
+                - img [ref=e401]
+              - text: "\"Lorem ipsum dolor sit amet, tempor incididunt aliqua. Ut enim ad minim veniam, quis nostrud incididunt consectetur adipiscing elit.\""
+            - generic [ref=e404]:
+              - img "@radix-vue" [ref=e406]
+              - generic [ref=e407]:
+                - heading "Ava Mitchell" [level=3] [ref=e408]
+                - paragraph [ref=e409]: IT Project Manager
+        - group [ref=e410]:
+          - generic [ref=e411]:
+            - generic [ref=e412]:
+              - generic [ref=e413]:
+                - img [ref=e414]
+                - img [ref=e416]
+                - img [ref=e418]
+                - img [ref=e420]
+                - img [ref=e422]
+              - text: "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\""
+            - generic [ref=e425]:
+              - img "@radix-vue" [ref=e427]
+              - generic [ref=e428]:
+                - heading "Isabella Reed" [level=3] [ref=e429]
+                - paragraph [ref=e430]: DevOps Engineer
+      - button [ref=e431] [cursor=pointer]:
+        - img [ref=e432]
+      - button [active] [ref=e434] [cursor=pointer]:
+        - img [ref=e435]
+  - generic [ref=e437]:
+    - generic [ref=e438]:
+      - heading "Team" [level=2] [ref=e439]
+      - heading "The Company Dream Team" [level=2] [ref=e440]
+    - generic [ref=e441]:
+      - generic [ref=e442]:
+        - heading "Leo Miranda" [level=3] [ref=e445]
+        - generic [ref=e446]: Vue Fronted Developer,
+        - generic [ref=e447]: Creator Of This Website
+        - generic [ref=e448]:
+          - link "Visit our LinkedIn page" [ref=e449] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/leopoldo-miranda/
+            - img [ref=e450]
+          - link "Visit our Github page" [ref=e452] [cursor=pointer]:
+            - /url: https://github.com/leoMirandaa
+            - img [ref=e453]
+          - link "Visit our X page" [ref=e455] [cursor=pointer]:
+            - /url: https://x.com/leo_mirand4
+            - img "X" [ref=e456]
+      - generic [ref=e458]:
+        - heading "Elizabeth Moore" [level=3] [ref=e461]
+        - generic [ref=e462]: UI/UX Designer
+        - generic [ref=e463]:
+          - link "Visit our LinkedIn page" [ref=e464] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/leopoldo-miranda/
+            - img [ref=e465]
+          - link "Visit our X page" [ref=e467] [cursor=pointer]:
+            - /url: https://x.com/leo_mirand4
+            - img "X" [ref=e468]
+      - generic [ref=e470]:
+        - heading "David Diaz" [level=3] [ref=e473]
+        - generic [ref=e474]: Machine Learning Engineer,
+        - generic [ref=e475]: TensorFlow Tinkerer
+        - generic [ref=e476]:
+          - link "Visit our LinkedIn page" [ref=e477] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/leopoldo-miranda/
+            - img [ref=e478]
+          - link "Visit our Github page" [ref=e480] [cursor=pointer]:
+            - /url: https://github.com/leoMirandaa
+            - img [ref=e481]
+      - generic [ref=e483]:
+        - heading "Sarah Robinson" [level=3] [ref=e486]
+        - generic [ref=e487]: Cloud Native Developer,
+        - generic [ref=e488]: Kubernetes Orchestrator
+        - generic [ref=e489]:
+          - link "Visit our LinkedIn page" [ref=e490] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/leopoldo-miranda/
+            - img [ref=e491]
+          - link "Visit our Github page" [ref=e493] [cursor=pointer]:
+            - /url: https://github.com/leoMirandaa
+            - img [ref=e494]
+          - link "Visit our X page" [ref=e496] [cursor=pointer]:
+            - /url: https://x.com/leo_mirand4
+            - img "X" [ref=e497]
+      - generic [ref=e499]:
+        - heading "Michael Holland" [level=3] [ref=e502]
+        - generic [ref=e503]: DevOps Engineer,
+        - generic [ref=e504]: CI/CD Pipeline Mastermind
+        - link "Visit our LinkedIn page" [ref=e506] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/leopoldo-miranda/
+          - img [ref=e507]
+      - generic [ref=e509]:
+        - heading "Zoe Garcia" [level=3] [ref=e512]
+        - generic [ref=e513]: JavaScript Evangelist,
+        - generic [ref=e514]: Deno Champion
+        - generic [ref=e515]:
+          - link "Visit our LinkedIn page" [ref=e516] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/leopoldo-miranda/
+            - img [ref=e517]
+          - link "Visit our Github page" [ref=e519] [cursor=pointer]:
+            - /url: https://github.com/leoMirandaa
+            - img [ref=e520]
+      - generic [ref=e522]:
+        - heading "Evan James" [level=3] [ref=e525]
+        - generic [ref=e526]: Backend Developer
+        - generic [ref=e527]:
+          - link "Visit our LinkedIn page" [ref=e528] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/leopoldo-miranda/
+            - img [ref=e529]
+          - link "Visit our Github page" [ref=e531] [cursor=pointer]:
+            - /url: https://github.com/leoMirandaa
+            - img [ref=e532]
+          - link "Visit our X page" [ref=e534] [cursor=pointer]:
+            - /url: https://x.com/leo_mirand4
+            - img "X" [ref=e535]
+      - generic [ref=e537]:
+        - heading "Pam Taylor" [level=3] [ref=e540]
+        - generic [ref=e541]: Fullstack developer,
+        - generic [ref=e542]: UX Researcher
+        - link "Visit our X page" [ref=e544] [cursor=pointer]:
+          - /url: https://x.com/leo_mirand4
+          - img "X" [ref=e545]
+  - generic [ref=e547]:
+    - separator [ref=e548]
+    - generic [ref=e551]:
+      - heading "Ready to join this Community?" [level=3] [ref=e553]:
+        - img [ref=e554]
+        - text: Ready to join this Community?
+      - generic [ref=e557]: Join our vibrant Discord community! Connect, share, and grow with like-minded enthusiasts. Click to dive in! 🚀
+      - link "Join Discord" [ref=e559] [cursor=pointer]:
+        - /url: https://discord.com/
+    - separator [ref=e560]
+  - generic [ref=e561]:
+    - heading "Pricing" [level=2] [ref=e562]
+    - heading "Get unlimitted access" [level=2] [ref=e563]
+    - heading "Lorem ipsum dolor sit amet consectetur adipisicing reiciendis." [level=3] [ref=e564]
+    - generic [ref=e565]:
+      - generic [ref=e566]:
+        - generic [ref=e567]:
+          - heading "Free" [level=3] [ref=e568]
+          - paragraph [ref=e569]: Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.
+          - generic [ref=e570]: $0 /month
+        - generic [ref=e572]:
+          - generic [ref=e573]:
+            - img [ref=e574]
+            - heading "1 team member" [level=3] [ref=e576]
+          - generic [ref=e577]:
+            - img [ref=e578]
+            - heading "1 GB storage" [level=3] [ref=e580]
+          - generic [ref=e581]:
+            - img [ref=e582]
+            - heading "Upto 2 pages" [level=3] [ref=e584]
+          - generic [ref=e585]:
+            - img [ref=e586]
+            - heading "Community support" [level=3] [ref=e588]
+          - generic [ref=e589]:
+            - img [ref=e590]
+            - heading "AI assistance" [level=3] [ref=e592]
+        - button "Start Free Trial" [ref=e594] [cursor=pointer]
+      - generic [ref=e595]:
+        - generic [ref=e596]:
+          - heading "Premium" [level=3] [ref=e597]
+          - paragraph [ref=e598]: Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.
+          - generic [ref=e599]: $45 /month
+        - generic [ref=e601]:
+          - generic [ref=e602]:
+            - img [ref=e603]
+            - heading "4 team member" [level=3] [ref=e605]
+          - generic [ref=e606]:
+            - img [ref=e607]
+            - heading "8 GB storage" [level=3] [ref=e609]
+          - generic [ref=e610]:
+            - img [ref=e611]
+            - heading "Upto 6 pages" [level=3] [ref=e613]
+          - generic [ref=e614]:
+            - img [ref=e615]
+            - heading "Priority support" [level=3] [ref=e617]
+          - generic [ref=e618]:
+            - img [ref=e619]
+            - heading "AI assistance" [level=3] [ref=e621]
+        - button "Get starterd" [ref=e623] [cursor=pointer]
+      - generic [ref=e624]:
+        - generic [ref=e625]:
+          - heading "Enterprise" [level=3] [ref=e626]
+          - paragraph [ref=e627]: Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.
+          - generic [ref=e628]: $120 /month
+        - generic [ref=e630]:
+          - generic [ref=e631]:
+            - img [ref=e632]
+            - heading "10 team member" [level=3] [ref=e634]
+          - generic [ref=e635]:
+            - img [ref=e636]
+            - heading "20 GB storage" [level=3] [ref=e638]
+          - generic [ref=e639]:
+            - img [ref=e640]
+            - heading "Upto 10 pages" [level=3] [ref=e642]
+          - generic [ref=e643]:
+            - img [ref=e644]
+            - heading "Phone & email support" [level=3] [ref=e646]
+          - generic [ref=e647]:
+            - img [ref=e648]
+            - heading "AI assistance" [level=3] [ref=e650]
+        - button "Contact US" [ref=e652] [cursor=pointer]
+  - generic [ref=e654]:
+    - generic [ref=e655]:
+      - generic [ref=e656]:
+        - heading "Contact" [level=2] [ref=e657]
+        - heading "Connect With Us" [level=2] [ref=e658]
+      - paragraph [ref=e659]: Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum ipsam sint enim exercitationem ex autem corrupti quas tenetur
+      - generic [ref=e660]:
+        - generic [ref=e661]:
+          - generic [ref=e662]:
+            - img [ref=e663]
+            - generic [ref=e667]: Find Us
+          - generic [ref=e668]: 742 Evergreen Terrace, Springfield, IL 62704
+        - generic [ref=e669]:
+          - generic [ref=e670]:
+            - img [ref=e671]
+            - generic [ref=e673]: Call Us
+          - generic [ref=e674]: +1 (619) 123-4567
+        - generic [ref=e675]:
+          - generic [ref=e676]:
+            - img [ref=e677]
+            - generic [ref=e680]: Mail Us
+          - generic [ref=e681]: leomirandadev@gmail.com
+        - generic [ref=e682]:
+          - generic [ref=e683]:
+            - img [ref=e684]
+            - generic [ref=e687]: Visit Us
+          - generic [ref=e688]:
+            - generic [ref=e689]: Monday - Friday
+            - generic [ref=e690]: 8AM - 4PM
+    - generic [ref=e694]:
+      - generic [ref=e695]:
+        - generic [ref=e696]:
+          - generic [ref=e697]: First Name
+          - textbox "First Name" [ref=e698]:
+            - /placeholder: Leopoldo
+        - generic [ref=e699]:
+          - generic [ref=e700]: Last Name
+          - textbox "Last Name" [ref=e701]:
+            - /placeholder: Miranda
+      - generic [ref=e702]:
+        - generic [ref=e703]: Email
+        - textbox "Email" [ref=e704]:
+          - /placeholder: leomirandadev@gmail.com
+      - generic [ref=e705]:
+        - generic [ref=e706]: Subject
+        - combobox [ref=e707] [cursor=pointer]:
+          - generic: Web Development
+          - img [ref=e708]
+        - combobox [ref=e710]
+      - generic [ref=e711]:
+        - generic [ref=e712]: Message
+        - textbox "Message" [ref=e713]:
+          - /placeholder: Your message...
+      - button "Send message" [ref=e714] [cursor=pointer]
+  - generic [ref=e716]:
+    - generic [ref=e717]:
+      - heading "FAQS" [level=2] [ref=e718]
+      - heading "Common Questions" [level=2] [ref=e719]
+    - generic [ref=e720]:
+      - heading "Is this template free?" [level=3] [ref=e722]:
+        - button "Is this template free?" [ref=e723] [cursor=pointer]:
+          - text: Is this template free?
+          - img [ref=e724]
+      - heading "Duis aute irure dolor in reprehenderit in voluptate velit?" [level=3] [ref=e726]:
+        - button "Duis aute irure dolor in reprehenderit in voluptate velit?" [ref=e727] [cursor=pointer]:
+          - text: Duis aute irure dolor in reprehenderit in voluptate velit?
+          - img [ref=e728]
+      - heading "Lorem ipsum dolor sit amet Consectetur natus dolor minus quibusdam?" [level=3] [ref=e730]:
+        - button "Lorem ipsum dolor sit amet Consectetur natus dolor minus quibusdam?" [ref=e731] [cursor=pointer]:
+          - text: Lorem ipsum dolor sit amet Consectetur natus dolor minus quibusdam?
+          - img [ref=e732]
+      - heading "Excepteur sint occaecat cupidata non proident sunt?" [level=3] [ref=e734]:
+        - button "Excepteur sint occaecat cupidata non proident sunt?" [ref=e735] [cursor=pointer]:
+          - text: Excepteur sint occaecat cupidata non proident sunt?
+          - img [ref=e736]
+      - heading "Enim ad minim veniam, quis nostrud exercitation ullamco laboris?" [level=3] [ref=e738]:
+        - button "Enim ad minim veniam, quis nostrud exercitation ullamco laboris?" [ref=e739] [cursor=pointer]:
+          - text: Enim ad minim veniam, quis nostrud exercitation ullamco laboris?
+          - img [ref=e740]
+    - heading "Still have questions? Contact us" [level=3] [ref=e741]:
+      - text: Still have questions?
+      - link "Contact us" [ref=e742] [cursor=pointer]:
+        - /url: "#"
+        - link "Contact us" [ref=e743]:
+          - /url: "#"
+  - contentinfo [ref=e744]:
+    - generic [ref=e745]:
+      - generic [ref=e746]:
+        - link "Shadcn-Vue" [ref=e748] [cursor=pointer]:
+          - /url: "#"
+          - img [ref=e749]
+          - heading "Shadcn-Vue" [level=3] [ref=e752]
+        - generic [ref=e753]:
+          - heading "Contact" [level=3] [ref=e754]
+          - link "Github" [ref=e756] [cursor=pointer]:
+            - /url: "#"
+          - link "Twitter" [ref=e758] [cursor=pointer]:
+            - /url: "#"
+          - link "Instagram" [ref=e760] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=e761]:
+          - heading "Platforms" [level=3] [ref=e762]
+          - link "iOS" [ref=e764] [cursor=pointer]:
+            - /url: "#"
+          - link "Android" [ref=e766] [cursor=pointer]:
+            - /url: "#"
+          - link "Web" [ref=e768] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=e769]:
+          - heading "Help" [level=3] [ref=e770]
+          - link "Contact Us" [ref=e772] [cursor=pointer]:
+            - /url: "#"
+          - link "FAQ" [ref=e774] [cursor=pointer]:
+            - /url: "#"
+          - link "Feedback" [ref=e776] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=e777]:
+          - heading "Socials" [level=3] [ref=e778]
+          - link "Twitch" [ref=e780] [cursor=pointer]:
+            - /url: "#"
+          - link "Discord" [ref=e782] [cursor=pointer]:
+            - /url: "#"
+          - link "Dribbble" [ref=e784] [cursor=pointer]:
+            - /url: "#"
+      - separator [ref=e785]
+      - heading "© 2024 Designed and developed by Leo Miranda" [level=3] [ref=e787]:
+        - text: © 2024 Designed and developed by
+        - link "Leo Miranda" [ref=e788] [cursor=pointer]:
+          - /url: https://github.com/leoMirandaa
+```
