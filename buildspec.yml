@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to npm...
+      - npm install
+  build:
+    commands:
+      - echo Build started on `date`
+      - npm run build
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Syncing files to S3...
+      - aws s3 sync dist/ s3://shadcn-vue-landing-1765445810 --delete
+      - echo Creating CloudFront invalidation...
+      - aws cloudfront create-invalidation --distribution-id ECTNGGXB5JN7B --paths "/*"
+
+artifacts:
+  files:
+    - '**/*'
+  name: shadcn-vue-landing-$(date +%Y-%m-%d)
+  base-directory: dist
