@@ -1,0 +1,73 @@
+name: Deploy to S3 and invalidate CloudFront
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths-ignore:
+      - '**.md'
+      - '.gitignore'
+      - 'LICENSE'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: us-east-1
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Deploy to S3
+        env:
+          S3_BUCKET: shadcn-vue-landing-page-1765463304
+        run: |
+          aws s3 sync dist/ s3://$S3_BUCKET --delete \
+            --cache-control "max-age=31536000" \
+            --exclude "index.html"
+          aws s3 cp dist/index.html s3://$S3_BUCKET/index.html \
+            --cache-control "max-age=3600" \
+            --content-type "text/html"
+          echo "✓ Files deployed to S3"
+
+      - name: Invalidate CloudFront cache
+        env:
+          CLOUDFRONT_DISTRIBUTION_ID: EY5LNULFGYMLR
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id $CLOUDFRONT_DISTRIBUTION_ID \
+            --paths "/*"
+          echo "✓ CloudFront cache invalidated"
+
+      - name: Deployment summary
+        run: |
+          echo "=== Deployment Summary ==="
+          echo "✓ Build completed"
+          echo "✓ Files deployed to S3: shadcn-vue-landing-page-1765463304"
+          echo "✓ CloudFront cache invalidated: EY5LNULFGYMLR"
+          echo "✓ Website available at: https://d1yv1zt51luay2.cloudfront.net"
