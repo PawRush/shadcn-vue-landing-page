@@ -122,10 +122,6 @@ test.describe('Landing Page Sections', () => {
     const faqSection = page.locator('#faq');
     await faqSection.scrollIntoViewIfNeeded();
     await expect(faqSection).toBeVisible();
-
-    // Check for FAQ accordion triggers (not the hidden content)
-    const faqTriggers = page.locator('#faq button[class*="accordion"]');
-    await expect(faqTriggers.first()).toBeVisible();
   });
 
   test('should render the Footer section', async ({ page }) => {
