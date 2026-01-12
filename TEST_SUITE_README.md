@@ -133,7 +133,7 @@ Responsive design validation across multiple viewports (32 tests):
 
 ### Run all tests
 ```bash
-npm test:e2e
+npm run test:e2e
 ```
 
 ### Run specific test file
