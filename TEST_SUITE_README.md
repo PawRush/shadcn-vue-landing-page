@@ -129,21 +129,11 @@ Responsive design validation across multiple viewports (32 tests):
 "test:report": "playwright show-report"
 ```
 
-## Running the Tests
+## Running e2e tests
 
 ### Run all tests
 ```bash
-npm test
-```
-
-### Run tests in UI mode
-```bash
-npm run test:ui
-```
-
-### Run tests in headed mode (visible browser)
-```bash
-npm run test:headed
+npm test:e2e
 ```
 
 ### Run specific test file
@@ -154,11 +144,6 @@ npx playwright test tests/landing-sections.spec.ts
 ### Run specific browser
 ```bash
 npx playwright test --project=chromium
-```
-
-### View test report
-```bash
-npm run test:report
 ```
 
 ## Test Results Summary

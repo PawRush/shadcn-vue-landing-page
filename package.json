@@ -23,10 +23,7 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "test": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:headed": "playwright test --headed",
-    "test:report": "playwright show-report"
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@selemondev/vue3-marquee": "^0.0.8",
