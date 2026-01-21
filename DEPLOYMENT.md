@@ -1,12 +1,13 @@
 # Deployment Summary
 
-Your app is deployed to AWS! Preview URL: https://d1tipxopsfd27t.cloudfront.net
+Your app is deployed to AWS with automated CI/CD!
 
-**Next Step: Automate Deployments**
+**Preview Environment:** https://d1tipxopsfd27t.cloudfront.net (manual deployment)
+**Production Environment:** Automated via CodePipeline (deploys when you push to `deploy-to-aws` branch)
 
-You're currently using manual deployment. To automate deployments from GitHub, ask your coding agent to set up AWS CodePipeline using an agent SOP for pipeline creation. Try: "create a pipeline using AWS SOPs"
+**Pipeline Console:** https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/ShadcnVuePipeline/view
 
-Services used: CloudFront, S3, CloudFormation, IAM
+Services used: CloudFront, S3, CloudFormation, IAM, CodePipeline, CodeBuild, CodeConnections
 
 Questions? Ask your Coding Agent:
  - What resources were deployed to AWS?
@@ -14,18 +15,36 @@ Questions? Ask your Coding Agent:
 
 ## Quick Commands
 
+### Pipeline Commands
+
+```bash
+# View pipeline status
+aws codepipeline get-pipeline-state --name "ShadcnVuePipeline" --query 'stageStates[*].[stageName,latestExecution.status]' --output table
+
+# View build logs
+aws logs tail "/aws/codebuild/ShadcnVuePipelineStack-Synth" --follow
+
+# Trigger pipeline manually (usually not needed, auto-triggers on git push)
+aws codepipeline start-pipeline-execution --name "ShadcnVuePipeline"
+
+# Deploy to production
+git push origin deploy-to-aws
+```
+
+### Manual Deployment Commands (Preview Environment)
+
 ```bash
 # View deployment status
 aws cloudformation describe-stacks --stack-name "ShadcnVueFrontend-preview-sergeyka" --query 'Stacks[0].StackStatus' --output text
+
+# Manual redeploy to preview
+./scripts/deploy.sh
 
 # Invalidate CloudFront cache
 aws cloudfront create-invalidation --distribution-id "E3U3NF11MSXDVN" --paths "/*"
 
 # View CloudFront access logs (last hour)
 aws s3 ls "s3://shadcnvuefrontend-preview-cftos3cloudfrontloggingb-elz1vkbfu2li/" --recursive | tail -20
-
-# Redeploy
-./scripts/deploy.sh
 ```
 
 ## Production Readiness
@@ -109,3 +128,52 @@ None.
 Agent: Claude Sonnet 4.5
 Progress: Complete deployment from setup to production
 Next: Documentation finalized
+
+### Session 2 - 2026-01-21 20:25:00 UTC
+Agent: Claude Sonnet 4.5
+Progress: Pipeline setup complete
+Next: Pipeline monitoring
+
+---
+
+# Pipeline Deployment
+
+## Pipeline Info
+
+- **Pipeline Name:** ShadcnVuePipeline
+- **Pipeline ARN:** arn:aws:codepipeline:us-east-1:126593893432:ShadcnVuePipeline
+- **Pipeline Console:** https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/ShadcnVuePipeline/view
+- **Source Branch:** deploy-to-aws
+- **Repository:** PawRush/shadcn-vue-landing-page
+- **CodeConnection Status:** AVAILABLE
+
+## Pipeline Stages
+
+1. **Source:** Pull from GitHub via CodeConnection (branch: deploy-to-aws)
+2. **Build (Synth):** Secret scanning + CDK synthesis
+3. **UpdatePipeline:** Self-mutation (if pipeline changed)
+4. **Assets:** Publish file/Docker assets to S3
+5. **Deploy:** Deploy ShadcnVueFrontend-prod stack
+
+## How It Works
+
+The pipeline automatically triggers when you push to the `deploy-to-aws` branch:
+
+1. Push your changes: `git push origin deploy-to-aws`
+2. Pipeline automatically starts
+3. Runs secret scanning with secretlint
+4. Builds frontend (`npm run build`)
+5. Synthesizes CDK infrastructure
+6. Deploys production stack (ShadcnVueFrontend-prod)
+7. Production site goes live at CloudFront URL
+
+## Production Stack
+
+The pipeline deploys a production frontend stack with:
+- Stack Name: ShadcnVueFrontend-prod
+- CloudFront distribution
+- S3 bucket for static assets
+- Secure HTTPS access
+- Logging enabled
+
+Production URL will be available after first pipeline run completes.

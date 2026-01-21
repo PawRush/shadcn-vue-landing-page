@@ -58,8 +58,12 @@ npm run dev
 
 ## Deployment
 
-Deployed at: https://d1tipxopsfd27t.cloudfront.net, using the [deploy-frontend-app] Agent Standard Operation Procedure from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
+**Preview:** https://d1tipxopsfd27t.cloudfront.net (manual deployment: `./scripts/deploy.sh`)
 
-Deployment command: `./scripts/deploy.sh`
+**Production:** Automated via AWS CodePipeline
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details.
+**Pipeline:** https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/ShadcnVuePipeline/view
+
+Deploy to production: `git push origin deploy-to-aws`
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details. Created with the [deploy-frontend-app] and [setup-pipeline] Agent Standard Operation Procedures from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
