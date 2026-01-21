@@ -1,11 +1,42 @@
----
-sop_name: deploy-frontend-app
-repo_name: shadcn-vue-landing-page
-app_name: ShadcnVue
-app_type: Frontend Application
-branch: main
-created: 2026-01-21 20:11:21 UTC
-last_updated: 2026-01-21 20:22:00 UTC
+# Deployment Summary
+
+Your app is deployed to AWS! Preview URL: https://d1tipxopsfd27t.cloudfront.net
+
+**Next Step: Automate Deployments**
+
+You're currently using manual deployment. To automate deployments from GitHub, ask your coding agent to set up AWS CodePipeline using an agent SOP for pipeline creation. Try: "create a pipeline using AWS SOPs"
+
+Services used: CloudFront, S3, CloudFormation, IAM
+
+Questions? Ask your Coding Agent:
+ - What resources were deployed to AWS?
+ - How do I update my deployment?
+
+## Quick Commands
+
+```bash
+# View deployment status
+aws cloudformation describe-stacks --stack-name "ShadcnVueFrontend-preview-sergeyka" --query 'Stacks[0].StackStatus' --output text
+
+# Invalidate CloudFront cache
+aws cloudfront create-invalidation --distribution-id "E3U3NF11MSXDVN" --paths "/*"
+
+# View CloudFront access logs (last hour)
+aws s3 ls "s3://shadcnvuefrontend-preview-cftos3cloudfrontloggingb-elz1vkbfu2li/" --recursive | tail -20
+
+# Redeploy
+./scripts/deploy.sh
+```
+
+## Production Readiness
+
+For production deployments, consider:
+- WAF Protection: Add AWS WAF with managed rules (Core Rule Set, Known Bad Inputs) and rate limiting
+- CSP Headers: Configure Content Security Policy in CloudFront response headers (`script-src 'self'`, `frame-ancestors 'none'`)
+- Custom Domain: Set up Route 53 and ACM certificate
+- Monitoring: CloudWatch alarms for 4xx/5xx errors and CloudFront metrics
+- Auth Redirect URLs: If using an auth provider (Auth0, Supabase, Firebase, Lovable, etc.), add your CloudFront URL to allowed redirect URLs
+
 ---
 
 # Deployment Plan: ShadcnVue Landing Page
@@ -62,7 +93,7 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 ```bash
 # Rollback
 cd infra
-cdk destroy "<StackName>"
+cdk destroy "ShadcnVueFrontend-preview-sergeyka"
 
 # Redeploy
 ./scripts/deploy.sh
@@ -76,5 +107,5 @@ None.
 
 ### Session 1 - 2026-01-21 20:11:21 UTC
 Agent: Claude Sonnet 4.5
-Progress: Starting deployment
-Next: Phase 1 - Step 0
+Progress: Complete deployment from setup to production
+Next: Documentation finalized
