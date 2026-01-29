@@ -10,13 +10,17 @@ last_updated: 2026-01-29T22:32:00Z
 
 # Deployment Summary
 
-Your app is deployed to AWS! Preview URL: https://d341aifhtay8h5.cloudfront.net
+Your app is deployed to AWS with automated CI/CD!
 
-**Next Step: Automate Deployments**
+**Production URL:** https://d341aifhtay8h5.cloudfront.net (manual preview deployment)
+**Pipeline:** https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/ShadcnVuePipeline/view
 
-You're currently using manual deployment. To automate deployments from GitHub, ask your coding agent to set up AWS CodePipeline using an agent SOP for pipeline creation. Try: "create a pipeline using AWS SOPs"
+**Automated Deployments:** ✅ Configured
+- Push to `deploy-to-aws-20260129_231512-sergeyka` branch triggers automatic deployment
+- Pipeline runs quality checks (secretlint) and deploys to production stack
+- Production stack: `ShadcnVueFrontend-prod`
 
-Services used: CloudFront, S3, CloudFormation, IAM
+Services used: CloudFront, S3, CloudFormation, IAM, CodePipeline, CodeBuild, CodeConnections
 
 Questions? Ask your Coding Agent:
  - What resources were deployed to AWS?
@@ -25,16 +29,22 @@ Questions? Ask your Coding Agent:
 ## Quick Commands
 
 ```bash
-# View deployment status
+# View pipeline status
+aws codepipeline get-pipeline-state --name "ShadcnVuePipeline" --query 'stageStates[*].[stageName,latestExecution.status]' --output table
+
+# Trigger pipeline manually (or just push to branch)
+git push origin deploy-to-aws-20260129_231512-sergeyka
+
+# View build logs
+aws logs tail "/aws/codebuild/ShadcnVuePipelineStack-Synth" --follow
+
+# View preview deployment status
 aws cloudformation describe-stacks --stack-name "ShadcnVueFrontend-preview-sergeyka" --query 'Stacks[0].StackStatus' --output text
 
-# Invalidate CloudFront cache
-aws cloudfront create-invalidation --distribution-id "E3JCIIUXCHRJWD" --paths "/*"
+# View production deployment status
+aws cloudformation describe-stacks --stack-name "ShadcnVueFrontend-prod" --query 'Stacks[0].StackStatus' --output text
 
-# View CloudFront access logs (last hour)
-aws s3 ls "s3://shadcnvuefrontend-preview-cftos3cloudfrontloggingb-yngh3xsaevjz/" --recursive | tail -20
-
-# Redeploy
+# Manual deployment (preview environment)
 ./scripts/deploy.sh
 ```
 
@@ -81,13 +91,15 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 
 ## Deployment Info
 
+### Frontend Application
 - Framework: Vue.js + Vite (SPA)
 - Package Manager: npm
 - Build Command: npm run build
 - Output Directory: dist/
 - Base Path: / (root)
 - Entry Point: index.html
-- Lint Command: Not detected
+
+### Preview Environment (Manual)
 - Deployment URL: https://d341aifhtay8h5.cloudfront.net
 - Stack Name: ShadcnVueFrontend-preview-sergeyka
 - CloudFront Distribution ID: E3JCIIUXCHRJWD
@@ -95,6 +107,17 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - S3 Log Bucket: shadcnvuefrontend-preview-cftos3s3loggingbucket64b-jzpsqdoocwze
 - CloudFront Log Bucket: shadcnvuefrontend-preview-cftos3cloudfrontloggingb-yngh3xsaevjz
 - Deployment Timestamp: 2026-01-29T22:31:06Z
+
+### CI/CD Pipeline (Automated)
+- Pipeline Name: ShadcnVuePipeline
+- Pipeline ARN: arn:aws:codepipeline:us-east-1:126593893432:ShadcnVuePipeline
+- Pipeline URL: https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/ShadcnVuePipeline/view
+- Repository: PawRush/shadcn-vue-landing-page
+- Trigger Branch: deploy-to-aws-20260129_231512-sergeyka
+- Production Stack: ShadcnVueFrontend-prod
+- Quality Checks: secretlint
+- CodeConnection: arn:aws:codeconnections:us-east-1:126593893432:connection/c140aa0c-7407-42c9-aa4b-7c81f5faf40b
+- Deployment Method: Push to branch triggers automatic deployment
 
 ## Recovery Guide
 
