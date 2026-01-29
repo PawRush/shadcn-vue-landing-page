@@ -5,7 +5,7 @@ app_name: ShadcnVue
 app_type: Frontend Application
 branch: deploy-to-aws-20260129_231512-sergeyka
 created: 2026-01-29T22:18:49Z
-last_updated: 2026-01-29T22:25:00Z
+last_updated: 2026-01-29T22:32:00Z
 ---
 
 # Deployment Plan: ShadcnVue Landing Page
@@ -29,8 +29,8 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - [x] Step 9: Validate CDK Synth
 
 ## Phase 3: Deploy and Validate
-- [ ] Step 10: Execute CDK Deployment
-- [ ] Step 11: Validate CloudFormation Stack
+- [x] Step 10: Execute CDK Deployment
+- [x] Step 11: Validate CloudFormation Stack
 
 ## Phase 4: Update Documentation
 - [ ] Step 12: Finalize Deployment Plan
@@ -45,10 +45,13 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - Base Path: / (root)
 - Entry Point: index.html
 - Lint Command: Not detected
-- Deployment URL: [after completion]
-- Stack Name: [after creation]
-- CloudFront Distribution ID: [after creation]
-- S3 Bucket Name: [after creation]
+- Deployment URL: https://d341aifhtay8h5.cloudfront.net
+- Stack Name: ShadcnVueFrontend-preview-sergeyka
+- CloudFront Distribution ID: E3JCIIUXCHRJWD
+- S3 Bucket Name: shadcnvuefrontend-preview-s-cftos3s3bucketcae9f2be-y0fstnjjjs12
+- S3 Log Bucket: shadcnvuefrontend-preview-cftos3s3loggingbucket64b-jzpsqdoocwze
+- CloudFront Log Bucket: shadcnvuefrontend-preview-cftos3cloudfrontloggingb-yngh3xsaevjz
+- Deployment Timestamp: 2026-01-29T22:31:06Z
 
 ## Recovery Guide
 
