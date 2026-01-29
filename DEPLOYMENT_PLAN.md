@@ -34,7 +34,7 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 
 ## Phase 4: Update Documentation
 - [x] Step 12: Finalize Deployment Plan
-- [ ] Step 13: Update README.md
+- [x] Step 13: Update README.md
 
 ## Deployment Info
 
@@ -78,7 +78,36 @@ None.
 - Lint command: None
 - CloudFront config: SPA error responses (403/404 → /index.html)
 
+## Pipeline Setup
+
+### Phase 1: Gather Context and Configure
+- [x] Step 0: Inform User of Execution Flow
+- [x] Step 1: Create Deployment Plan
+- [x] Step 2: Detect Existing Infrastructure
+
+### Phase 2: Build and Deploy Pipeline
+- [ ] Step 3: Create CDK Pipeline Stack
+- [ ] Step 4: CDK Bootstrap
+- [ ] Step 5: Deploy Pipeline
+- [ ] Step 6: Monitor Pipeline
+
+### Phase 3: Documentation
+- [ ] Step 7: Finalize Deployment Plan
+- [ ] Step 8: Update README.md
+
+## Pipeline Info
+
+- CodeConnection ARN: arn:aws:codeconnections:us-east-1:126593893432:connection/c140aa0c-7407-42c9-aa4b-7c81f5faf40b
+- Pipeline Branch: deploy-to-aws-20260129_185538-sergeyka
+- Pipeline Stack: (to be created)
+- Pipeline URL: (to be created)
+
 ### Session 1 - 2026-01-29T18:57:00Z
 Agent: Claude Sonnet 4.5
-Progress: Completed Phase 1 - gathered context, created deployment plan, detected build config (Vue.js SPA with Vite, npm, dist/ output), validated prerequisites
-Next: Phase 2 - Initialize CDK foundation
+Progress: Completed frontend deployment - all 4 phases
+Next: Setup pipeline
+
+### Session 2 - 2026-01-29T19:17:00Z
+Agent: Claude Sonnet 4.5
+Progress: Starting pipeline setup
+Next: Detect existing infrastructure
