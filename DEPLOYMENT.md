@@ -1,22 +1,22 @@
 ---
-sop_name: deploy-frontend-app
+sop_name: setup-pipeline
 repo_name: shadcn-vue-landing-page
 app_name: ShadcnVue
-app_type: Frontend Application
+app_type: Frontend Application with CI/CD Pipeline
 branch: deploy-to-aws-20260130_032535-sergeyka
 created: 2026-01-30 03:01:05 UTC
-last_updated: 2026-01-30 03:13:30 UTC
+last_updated: 2026-01-30 04:18:40 UTC
 ---
 
 # Deployment Summary
 
-Your app is deployed to AWS! Preview URL: https://d3nsg0vcr6ktjh.cloudfront.net
+Your app has a CodePipeline pipeline. Changes on GitHub branch deploy-to-aws-20260130_032535-sergeyka will be deployed automatically. This is managed by CloudFormation stack ShadcnVuePipelineStack.
 
-**Next Step: Automate Deployments**
+Pipeline console: https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/ShadcnVuePipeline/view
 
-You're currently using manual deployment. To automate deployments from GitHub, ask your coding agent to set up AWS CodePipeline using an agent SOP for pipeline creation. Try: "create a pipeline using AWS SOPs"
+Production URL: https://d3nsg0vcr6ktjh.cloudfront.net (will be available after pipeline completes)
 
-Services used: CloudFront, S3, CloudFormation, IAM
+Services used: CodePipeline, CodeBuild, CodeConnections, CloudFront, S3, CloudFormation, IAM
 
 Questions? Ask your Coding Agent:
  - What resources were deployed to AWS?
@@ -25,17 +25,17 @@ Questions? Ask your Coding Agent:
 ## Quick Commands
 
 ```bash
-# View deployment status
-aws cloudformation describe-stacks --stack-name "ShadcnVueFrontend-preview-sergeyka" --query 'Stacks[0].StackStatus' --output text
+# View pipeline status
+aws codepipeline get-pipeline-state --name "ShadcnVuePipeline" --query 'stageStates[*].[stageName,latestExecution.status]' --output table
 
-# Invalidate CloudFront cache
-aws cloudfront create-invalidation --distribution-id "E2659PK4KM0225" --paths "/*"
+# View build logs
+aws logs tail "/aws/codebuild/ShadcnVuePipelineStack-Synth" --follow
 
-# View CloudFront access logs (last hour)
-aws s3 ls "s3://shadcnvuefrontend-preview-cftos3cloudfrontloggingb-zjytre8szhfn/" --recursive | tail -20
+# Trigger pipeline manually
+aws codepipeline start-pipeline-execution --name "ShadcnVuePipeline"
 
-# Redeploy
-./scripts/deploy.sh
+# View production stack status
+aws cloudformation describe-stacks --stack-name "ShadcnVueFrontend-prod" --query 'Stacks[0].StackStatus' --output text
 ```
 
 ## Production Readiness
