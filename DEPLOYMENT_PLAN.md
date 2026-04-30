@@ -5,7 +5,7 @@ app_name: ShadcnVue
 app_type: Frontend Application (Vue 3 + Vite)
 branch: deploy-to-aws-20260430_103125-kamielw
 created: 2026-04-30T10:52:00Z
-last_updated: 2026-04-30T10:59:00Z
+last_updated: 2026-04-30T11:01:00Z
 ---
 
 # Deployment Plan: ShadcnVue Landing Page
@@ -33,8 +33,8 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 **➡️ Phase 2 Checkpoint**
 
 ## Phase 3: Deploy and Validate
-- [ ] Step 10: Execute CDK Deployment
-- [ ] Step 11: Validate CloudFormation Stack
+- [x] Step 10: Execute CDK Deployment
+- [x] Step 11: Validate CloudFormation Stack
 
 **➡️ Phase 3 Checkpoint**
 
@@ -53,23 +53,31 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - Base Path: / (root)
 - Entry Point: index.html
 - CloudFront Config: SPA mode (error responses to /index.html)
-- Deployment URL: [after completion]
+- Deployment URL: https://d24ugi5fy01jqu.cloudfront.net
 - Stack Name: ShadcnVueFrontend-preview-kamielw
-- Distribution ID: [after creation]
-- S3 Bucket Name: [after creation]
+- Region: eu-central-1
+- Distribution ID: ELGT4FY3ZY3LD
+- Distribution Domain: d24ugi5fy01jqu.cloudfront.net
+- S3 Bucket Name: shadcnvuefrontend-preview-k-cftos3s3bucketcae9f2be-lplyp1qqcaly
+- S3 Log Bucket: shadcnvuefrontend-preview-cftos3s3loggingbucket64b-l4nfaof2xpox
+- CloudFront Log Bucket: shadcnvuefrontend-preview-cftos3cloudfrontloggingb-c6fvg4tlq6me
+- Deployment Timestamp: 2026-04-30T11:00:00Z
 
 ## Recovery Guide
 
 ```bash
 # Rollback
 cd infra
-npm run destroy
+AWS_PAGER="" aws cloudformation delete-stack --region eu-central-1 --stack-name "ShadcnVueFrontend-preview-kamielw"
 
 # Redeploy
 ./scripts/deploy.sh
 
 # Validate deployment
-aws cloudformation describe-stacks --stack-name "ShadcnVueFrontend-preview-kamielw" --query 'Stacks[0].StackStatus' --output text
+AWS_PAGER="" aws cloudformation describe-stacks --region eu-central-1 --stack-name "ShadcnVueFrontend-preview-kamielw" --query 'Stacks[0].StackStatus' --output text
+
+# Invalidate CloudFront cache
+AWS_PAGER="" aws cloudfront create-invalidation --distribution-id ELGT4FY3ZY3LD --paths "/*"
 ```
 
 ## Issues Encountered
@@ -80,5 +88,5 @@ None.
 
 ### Session 1 - 2026-04-30T10:52:00Z
 Agent: Claude Sonnet 4.5
-Progress: Phase 1 complete (deployment plan, branch, config detection, prerequisites validated). Phase 2 complete (CDK foundation initialized, frontend stack generated with SPA error responses, deployment script created, CDK synth validated successfully)
-Next: Execute CDK deployment
+Progress: Phase 1-3 complete. Deployed to https://d24ugi5fy01jqu.cloudfront.net (eu-central-1). Stack status: CREATE_COMPLETE. CloudFront status: Deployed. URL returns 200 OK.
+Next: Finalize deployment documentation
