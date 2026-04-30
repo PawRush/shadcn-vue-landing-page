@@ -1,114 +1,103 @@
+---
+sop_name: setup-pipeline
+repo_name: PawRush/shadcn-vue-landing-page
+app_name: ShadcnVue
+app_type: CI/CD Pipeline
+branch: deploy-to-aws-20260430_103125-kamielw
+created: 2026-04-30T10:31:25Z
+completed: 2026-04-30T11:19:00Z
+---
+
 # Deployment Summary
 
-Your app is deployed to AWS! Preview URL: https://d24ugi5fy01jqu.cloudfront.net
+Your app has a CodePipeline pipeline. Changes on GitHub branch `deploy-to-aws-20260430_103125-kamielw` will be deployed automatically. This is managed by CloudFormation stack `ShadcnVuePipelineStack`.
 
-**Next Step: Automate Deployments**
+**Production URL**: https://d3fmhjlc705cs0.cloudfront.net
 
-You're currently using manual deployment. To automate deployments from GitHub, ask your coding agent to set up AWS CodePipeline using an agent SOP for pipeline creation. Try: "create a pipeline using AWS SOPs"
+**Pipeline Console**: https://eu-central-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/ShadcnVuePipeline/view
 
-Services used: CloudFront, S3, CloudFormation, IAM
+Services used: CodePipeline, CodeBuild, CodeConnections, CloudFormation, CloudFront, S3, IAM
 
 Questions? Ask your Coding Agent:
- - What resources were deployed to AWS?
- - How do I update my deployment?
+- How can I change the source branch?
+- What's the difference between preview and prod URLs?
+- How do I trigger a manual deployment?
 
 ## Quick Commands
 
 ```bash
-# View deployment status
-AWS_PAGER="" aws cloudformation describe-stacks --region eu-central-1 --stack-name "ShadcnVueFrontend-preview-kamielw" --query 'Stacks[0].StackStatus' --output text
+# View pipeline status
+aws codepipeline get-pipeline-state --name "ShadcnVuePipeline" --region eu-central-1 --query 'stageStates[*].[stageName,latestExecution.status]' --output table
+
+# View build logs
+aws logs tail "/aws/codebuild/ShadcnVuePipelineStack-Synth" --region eu-central-1 --follow
+
+# Trigger pipeline manually
+aws codepipeline start-pipeline-execution --name "ShadcnVuePipeline" --region eu-central-1
 
 # Invalidate CloudFront cache
-AWS_PAGER="" aws cloudfront create-invalidation --region eu-central-1 --distribution-id ELGT4FY3ZY3LD --paths "/*"
-
-# View CloudFront access logs (last 20)
-AWS_PAGER="" aws s3 ls --region eu-central-1 "s3://shadcnvuefrontend-preview-cftos3cloudfrontloggingb-c6fvg4tlq6me/" --recursive | tail -20
-
-# Redeploy
-./scripts/deploy.sh
+aws cloudfront create-invalidation --distribution-id "EQYV8V1UV9EVE" --paths "/*"
 ```
-
-## Production Readiness
-
-For production deployments, consider:
-- WAF Protection: Add AWS WAF with managed rules (Core Rule Set, Known Bad Inputs) and rate limiting
-- CSP Headers: Configure Content Security Policy in CloudFront response headers (`script-src 'self'`, `frame-ancestors 'none'`)
-- Custom Domain: Set up Route 53 and ACM certificate
-- Monitoring: CloudWatch alarms for 4xx/5xx errors and CloudFront metrics
-- Auth Redirect URLs: If using an auth provider (Auth0, Supabase, Firebase, Lovable, etc.), add your CloudFront URL to allowed redirect URLs
 
 ---
 
-# Deployment Plan: ShadcnVue Landing Page
+# Deployment Plan: ShadcnVue Pipeline
 
 Coding Agents should follow this Deployment Plan, and validate previous progress if picking up the Deployment in a new coding session.
 
-**IMPORTANT**: This deployment has been completed. All steps are marked complete.
+**IMPORTANT**: Update this plan after EACH step completes. Mark the step `[x]` and update `last_updated` timestamp.
 
 ## Phase 1: Gather Context and Configure
 - [x] Step 0: Inform User of Execution Flow
 - [x] Step 1: Create Deployment Plan
-- [x] Step 2: Create Deploy Branch
-- [x] Step 3: Detect Build Configuration
-- [x] Step 4: Validate Prerequisites
-- [x] Step 5: Revisit Deployment Plan
+- [x] Step 2: Detect Existing Infrastructure
+  - [x] 2.1: Detect stacks, frontend, and backend
+  - [x] 2.2: Detect app name and git repository
+  - [x] 2.3: Determine quality checks
+  - [x] 2.4: User confirmation
+  - [x] 2.5: Create CodeConnection (SKIPPED - using existing)
+  - [x] 2.6: Ensure Production Secrets (SKIPPED - no Lambda functions)
 
-**➡️ Phase 1 Checkpoint**
+## Phase 2: Build and Deploy Pipeline
+- [x] Step 3: Create CDK Pipeline Stack
+- [x] Step 4: CDK Bootstrap
+- [x] Step 5: Deploy Pipeline
+  - [x] 5.1: Push to remote
+  - [x] 5.2: Authorize CodeConnection
+  - [x] 5.3: Deploy pipeline stack
+  - [x] 5.4: Trigger pipeline
+- [x] Step 6: Monitor Pipeline
 
-## Phase 2: Build CDK Infrastructure
-- [x] Step 6: Initialize CDK Foundation
-- [x] Step 7: Generate CDK Stack
-- [x] Step 8: Create Deployment Script
-- [x] Step 9: Validate CDK Synth
-
-**➡️ Phase 2 Checkpoint**
-
-## Phase 3: Deploy and Validate
-- [x] Step 10: Execute CDK Deployment
-- [x] Step 11: Validate CloudFormation Stack
-
-**➡️ Phase 3 Checkpoint**
-
-## Phase 4: Update Documentation
-- [x] Step 12: Finalize Deployment Plan
-- [x] Step 13: Update README.md
-
-**🎯 COMPLETION STEP**
+## Phase 3: Documentation
+- [x] Step 7: Finalize Deployment Plan
+- [x] Step 8: Update README.md
 
 ## Deployment Info
 
-- Framework: Vite + Vue 3 (SPA)
-- Package Manager: npm
-- Build Command: npm run build
-- Output Directory: dist/
-- Base Path: / (root)
-- Entry Point: index.html
-- CloudFront Config: SPA mode (error responses to /index.html)
-- Deployment URL: https://d24ugi5fy01jqu.cloudfront.net
-- Stack Name: ShadcnVueFrontend-preview-kamielw
+- CodeConnection ARN: arn:aws:codeconnections:eu-central-1:189681391221:connection/ee7a600a-99ab-4b3a-bf6c-b42cc9f5a026
+- Pipeline URL: https://eu-central-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/ShadcnVuePipeline/view
+- Stack name: ShadcnVuePipelineStack
+- Pipeline Name: ShadcnVuePipeline
+- Pipeline ARN: arn:aws:codepipeline:eu-central-1:189681391221:ShadcnVuePipeline
+- Repository: PawRush/shadcn-vue-landing-page
+- Branch: deploy-to-aws-20260430_103125-kamielw
 - Region: eu-central-1
-- Distribution ID: ELGT4FY3ZY3LD
-- Distribution Domain: d24ugi5fy01jqu.cloudfront.net
-- S3 Bucket Name: shadcnvuefrontend-preview-k-cftos3s3bucketcae9f2be-lplyp1qqcaly
-- S3 Log Bucket: shadcnvuefrontend-preview-cftos3s3loggingbucket64b-l4nfaof2xpox
-- CloudFront Log Bucket: shadcnvuefrontend-preview-cftos3cloudfrontloggingb-c6fvg4tlq6me
-- Deployment Timestamp: 2026-04-30T11:00:00Z
+- Production URL: https://d3fmhjlc705cs0.cloudfront.net
+- Distribution ID: EQYV8V1UV9EVE
+- Production Stack: ShadcnVueFrontend-prod
 
 ## Recovery Guide
 
 ```bash
-# Rollback
-cd infra
-AWS_PAGER="" aws cloudformation delete-stack --region eu-central-1 --stack-name "ShadcnVueFrontend-preview-kamielw"
+# Rollback - destroy pipeline
+(cd infra && npm run destroy:pipeline)
+
+# Manual cleanup
+aws codepipeline delete-pipeline --name "ShadcnVuePipeline" --region eu-central-1
+aws cloudformation delete-stack --stack-name "ShadcnVuePipelineStack" --region eu-central-1
 
 # Redeploy
-./scripts/deploy.sh
-
-# Validate deployment
-AWS_PAGER="" aws cloudformation describe-stacks --region eu-central-1 --stack-name "ShadcnVueFrontend-preview-kamielw" --query 'Stacks[0].StackStatus' --output text
-
-# Invalidate CloudFront cache
-AWS_PAGER="" aws cloudfront create-invalidation --region eu-central-1 --distribution-id ELGT4FY3ZY3LD --paths "/*"
+(cd infra && npm run deploy:pipeline)
 ```
 
 ## Issues Encountered
@@ -117,7 +106,10 @@ None.
 
 ## Session Log
 
-### Session 1 - 2026-04-30T10:52:00Z
+### Session 1 - 2026-04-30T10:31:25Z - 2026-04-30T11:19:00Z
 Agent: Claude Sonnet 4.5
-Progress: Phase 1-3 complete. Deployed to https://d24ugi5fy01jqu.cloudfront.net (eu-central-1). Stack status: CREATE_COMPLETE. CloudFront status: Deployed. URL returns 200 OK.
-Completion: All phases completed successfully. DEPLOYMENT.md created.
+Progress: Complete pipeline setup - all phases completed successfully
+- Phase 1: Infrastructure detection and configuration
+- Phase 2: Pipeline stack created and deployed, production stack deployed
+- Phase 3: Documentation finalized
+Status: ✅ Complete
