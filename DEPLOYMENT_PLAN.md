@@ -1,14 +1,14 @@
 ---
-sop_name: deploy-frontend-app
-repo_name: shadcn-vue-landing-page
+sop_name: setup-pipeline
+repo_name: PawRush/shadcn-vue-landing-page
 app_name: ShadcnVue
-app_type: Frontend Application (Vue 3 + Vite)
+app_type: CI/CD Pipeline
 branch: deploy-to-aws-20260430_103125-kamielw
-created: 2026-04-30T10:52:00Z
-last_updated: 2026-04-30T11:01:00Z
+created: 2026-04-30T10:31:25Z
+last_updated: 2026-04-30T10:35:00Z
 ---
 
-# Deployment Plan: ShadcnVue Landing Page
+# Deployment Plan: ShadcnVue Pipeline
 
 Coding Agents should follow this Deployment Plan, and validate previous progress if picking up the Deployment in a new coding session.
 
@@ -17,67 +17,48 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 ## Phase 1: Gather Context and Configure
 - [x] Step 0: Inform User of Execution Flow
 - [x] Step 1: Create Deployment Plan
-- [x] Step 2: Create Deploy Branch
-- [x] Step 3: Detect Build Configuration
-- [x] Step 4: Validate Prerequisites
-- [x] Step 5: Revisit Deployment Plan
+- [x] Step 2: Detect Existing Infrastructure
+  - [x] 2.1: Detect stacks, frontend, and backend
+  - [x] 2.2: Detect app name and git repository
+  - [x] 2.3: Determine quality checks
+  - [x] 2.4: User confirmation
+  - [x] 2.5: Create CodeConnection (SKIPPED - using existing)
+  - [x] 2.6: Ensure Production Secrets (SKIPPED - no Lambda functions)
 
-**➡️ Phase 1 Checkpoint**
+## Phase 2: Build and Deploy Pipeline
+- [ ] Step 3: Create CDK Pipeline Stack
+- [ ] Step 4: CDK Bootstrap
+- [ ] Step 5: Deploy Pipeline
+  - [ ] 5.1: Push to remote
+  - [ ] 5.2: Authorize CodeConnection
+  - [ ] 5.3: Deploy pipeline stack
+  - [ ] 5.4: Trigger pipeline
+- [ ] Step 6: Monitor Pipeline
 
-## Phase 2: Build CDK Infrastructure
-- [x] Step 6: Initialize CDK Foundation
-- [x] Step 7: Generate CDK Stack
-- [x] Step 8: Create Deployment Script
-- [x] Step 9: Validate CDK Synth
-
-**➡️ Phase 2 Checkpoint**
-
-## Phase 3: Deploy and Validate
-- [x] Step 10: Execute CDK Deployment
-- [x] Step 11: Validate CloudFormation Stack
-
-**➡️ Phase 3 Checkpoint**
-
-## Phase 4: Update Documentation
-- [ ] Step 12: Finalize Deployment Plan
-- [ ] Step 13: Update README.md
-
-**🎯 COMPLETION STEP**
+## Phase 3: Documentation
+- [ ] Step 7: Finalize Deployment Plan
+- [ ] Step 8: Update README.md
 
 ## Deployment Info
 
-- Framework: Vite + Vue 3 (SPA)
-- Package Manager: npm
-- Build Command: npm run build
-- Output Directory: dist/
-- Base Path: / (root)
-- Entry Point: index.html
-- CloudFront Config: SPA mode (error responses to /index.html)
-- Deployment URL: https://d24ugi5fy01jqu.cloudfront.net
-- Stack Name: ShadcnVueFrontend-preview-kamielw
-- Region: eu-central-1
-- Distribution ID: ELGT4FY3ZY3LD
-- Distribution Domain: d24ugi5fy01jqu.cloudfront.net
-- S3 Bucket Name: shadcnvuefrontend-preview-k-cftos3s3bucketcae9f2be-lplyp1qqcaly
-- S3 Log Bucket: shadcnvuefrontend-preview-cftos3s3loggingbucket64b-l4nfaof2xpox
-- CloudFront Log Bucket: shadcnvuefrontend-preview-cftos3cloudfrontloggingb-c6fvg4tlq6me
-- Deployment Timestamp: 2026-04-30T11:00:00Z
+- CodeConnection ARN: arn:aws:codeconnections:eu-central-1:189681391221:connection/ee7a600a-99ab-4b3a-bf6c-b42cc9f5a026
+- Pipeline URL: [after completion]
+- Stack name: [after creation]
+- Repository: PawRush/shadcn-vue-landing-page
+- Branch: deploy-to-aws-20260430_103125-kamielw
 
 ## Recovery Guide
 
 ```bash
-# Rollback
-cd infra
-AWS_PAGER="" aws cloudformation delete-stack --region eu-central-1 --stack-name "ShadcnVueFrontend-preview-kamielw"
+# Rollback - destroy pipeline
+(cd infra && npm run destroy:pipeline)
+
+# Manual cleanup
+aws codepipeline delete-pipeline --name "ShadcnVuePipeline"
+aws cloudformation delete-stack --stack-name "ShadcnVuePipelineStack"
 
 # Redeploy
-./scripts/deploy.sh
-
-# Validate deployment
-AWS_PAGER="" aws cloudformation describe-stacks --region eu-central-1 --stack-name "ShadcnVueFrontend-preview-kamielw" --query 'Stacks[0].StackStatus' --output text
-
-# Invalidate CloudFront cache
-AWS_PAGER="" aws cloudfront create-invalidation --distribution-id ELGT4FY3ZY3LD --paths "/*"
+(cd infra && npm run deploy:pipeline)
 ```
 
 ## Issues Encountered
@@ -86,7 +67,7 @@ None.
 
 ## Session Log
 
-### Session 1 - 2026-04-30T10:52:00Z
+### Session 1 - 2026-04-30T10:31:25Z
 Agent: Claude Sonnet 4.5
-Progress: Phase 1-3 complete. Deployed to https://d24ugi5fy01jqu.cloudfront.net (eu-central-1). Stack status: CREATE_COMPLETE. CloudFront status: Deployed. URL returns 200 OK.
-Next: Finalize deployment documentation
+Progress: Created deployment plan, starting infrastructure detection
+Next: Complete Step 2 - Detect Existing Infrastructure
