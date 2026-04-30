@@ -26,9 +26,9 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
   - [x] 2.6: Ensure Production Secrets (SKIPPED - no Lambda functions)
 
 ## Phase 2: Build and Deploy Pipeline
-- [ ] Step 3: Create CDK Pipeline Stack
-- [ ] Step 4: CDK Bootstrap
-- [ ] Step 5: Deploy Pipeline
+- [x] Step 3: Create CDK Pipeline Stack
+- [x] Step 4: CDK Bootstrap
+- [...] Step 5: Deploy Pipeline
   - [ ] 5.1: Push to remote
   - [ ] 5.2: Authorize CodeConnection
   - [ ] 5.3: Deploy pipeline stack
