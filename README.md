@@ -30,6 +30,14 @@ Live demo is now available: <a href="https://shadcn-vue-landing-page.vercel.app"
 - [x] Dark Mode
 - [x] Meta tags
 
+## Deployment
+
+Deployed at: https://d24ugi5fy01jqu.cloudfront.net, using the [deploy-frontend-app] Agent Standard Operation Procedure from the [AWS MCP](https://docs.aws.amazon.com/aws-mcp/latest/userguide/what-is-mcp-server.html).
+
+Deployment command: `./scripts/deploy.sh`
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for full details.
+
 ## How to install
 
 1. Clone this repositoy:
