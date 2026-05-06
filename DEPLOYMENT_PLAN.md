@@ -5,7 +5,7 @@ app_name: ShadcnVue
 app_type: Frontend Application
 branch: deploy-to-aws-20260506_182005-kamielw
 created: 2026-05-06T18:30:00Z
-last_updated: 2026-05-06T18:33:00Z
+last_updated: 2026-05-06T18:35:00Z
 ---
 
 # Deployment Plan: ShadcnVue Landing Page
@@ -29,8 +29,8 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - [x] Step 9: Validate CDK Synth
 
 ## Phase 3: Deploy and Validate
-- [ ] Step 10: Execute CDK Deployment
-- [ ] Step 11: Validate CloudFormation Stack
+- [x] Step 10: Execute CDK Deployment
+- [x] Step 11: Validate CloudFormation Stack
 
 ## Phase 4: Update Documentation
 - [ ] Step 12: Finalize Deployment Plan
@@ -44,10 +44,12 @@ Coding Agents should follow this Deployment Plan, and validate previous progress
 - Output Directory: dist/
 - Base Path: / (root)
 - Entry Point: index.html
-- Deployment URL: [after completion]
-- Stack name: [after creation]
-- Distribution ID: [after creation]
-- S3 Bucket: [after creation]
+- Deployment URL: https://d24ugi5fy01jqu.cloudfront.net
+- Stack name: ShadcnVueFrontend-preview-kamielw
+- Distribution ID: ELGT4FY3ZY3LD
+- S3 Bucket: shadcnvuefrontend-preview-k-cftos3s3bucketcae9f2be-lplyp1qqcaly
+- Region: eu-central-1
+- Deployed: 2026-05-06T18:35:00Z
 
 ## Recovery Guide
 
