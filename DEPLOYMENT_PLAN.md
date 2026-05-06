@@ -1,73 +1,56 @@
----
-sop_name: deploy-frontend-app
-repo_name: shadcn-vue-landing-page
-app_name: ShadcnVue
-app_type: Frontend Application
-branch: deploy-to-aws-20260506_182005-kamielw
-created: 2026-05-06T18:30:00Z
-last_updated: 2026-05-06T18:35:00Z
----
+# Pipeline Deployment Plan
 
-# Deployment Plan: ShadcnVue Landing Page
+**Started:** 2026-05-06
+**SOP:** setup-pipeline
+**Branch:** deploy-to-aws-20260506_182005-kamielw
+**CodeConnection ARN:** arn:aws:codeconnections:eu-central-1:189681391221:connection/4c2352a8-1bf0-449b-8300-b1135c0e5f4e
 
-Coding Agents should follow this Deployment Plan, and validate previous progress if picking up the Deployment in a new coding session.
+## Execution Flow
 
-**IMPORTANT**: Update this plan after EACH step completes. Mark the step `[x]` and update `last_updated` timestamp.
-
-## Phase 1: Gather Context and Configure
+### Phase 1: Gather Context and Configure
 - [x] Step 0: Inform User of Execution Flow
 - [x] Step 1: Create Deployment Plan
-- [x] Step 2: Create Deploy Branch
-- [x] Step 3: Detect Build Configuration
-- [x] Step 4: Validate Prerequisites
-- [x] Step 5: Revisit Deployment Plan
+- [x] Step 2: Detect Existing Infrastructure
+  - [x] 2.1: Detect stacks, frontend, and backend
+  - [x] 2.2: Detect app name and git repository
+  - [x] 2.3: Determine quality checks
+  - [x] 2.4: User confirmation
+  - [x] 2.5: Use existing CodeConnection (status: AVAILABLE)
+  - [x] 2.6: Ensure Production Secrets (not needed - no Lambda functions)
 
-## Phase 2: Build CDK Infrastructure
-- [x] Step 6: Initialize CDK Foundation
-- [x] Step 7: Generate CDK Stack
-- [x] Step 8: Create Deployment Script
-- [x] Step 9: Validate CDK Synth
+### Phase 2: Build and Deploy Pipeline
+- [ ] Step 3: Create CDK Pipeline Stack
+- [ ] Step 4: CDK Bootstrap
+- [ ] Step 5: Deploy Pipeline
+  - [ ] 5.1: Push to remote
+  - [ ] 5.2: Authorize CodeConnection
+  - [ ] 5.3: Deploy pipeline stack
+  - [ ] 5.4: Trigger pipeline
+- [ ] Step 6: Monitor Pipeline
 
-## Phase 3: Deploy and Validate
-- [x] Step 10: Execute CDK Deployment
-- [x] Step 11: Validate CloudFormation Stack
-
-## Phase 4: Update Documentation
-- [ ] Step 12: Finalize Deployment Plan
-- [ ] Step 13: Update README.md
-
-## Deployment Info
-
-- Framework: Vite + Vue.js + TypeScript
-- Package Manager: npm
-- Build Command: npm run build
-- Output Directory: dist/
-- Base Path: / (root)
-- Entry Point: index.html
-- Deployment URL: https://d24ugi5fy01jqu.cloudfront.net
-- Stack name: ShadcnVueFrontend-preview-kamielw
-- Distribution ID: ELGT4FY3ZY3LD
-- S3 Bucket: shadcnvuefrontend-preview-k-cftos3s3bucketcae9f2be-lplyp1qqcaly
-- Region: eu-central-1
-- Deployed: 2026-05-06T18:35:00Z
-
-## Recovery Guide
-
-```bash
-# Rollback
-cd infra && npx cdk destroy "ShadcnVueFrontend-preview-kamielw"
-
-# Redeploy
-./scripts/deploy.sh
-```
-
-## Issues Encountered
-
-None.
+### Phase 3: Documentation
+- [ ] Step 7: Finalize Deployment Plan
+- [ ] Step 8: Update README.md
 
 ## Session Log
 
-### Session 1 - 2026-05-06T18:30:00Z
-Agent: Claude Sonnet 4.5
-Progress: Created deployment plan, analyzed codebase structure
-Next: Switch to deploy branch and detect build configuration
+### 2026-05-06
+- Created deployment plan
+- Using existing CodeConnection: arn:aws:codeconnections:eu-central-1:189681391221:connection/4c2352a8-1bf0-449b-8300-b1135c0e5f4e (status: AVAILABLE)
+- Branch: deploy-to-aws-20260506_182005-kamielw
+- Detected app: shadcn-vue-landing-page (Vue.js + Vite)
+- Repository: PawRush/shadcn-vue-landing-page
+- Package manager: npm
+- Build output: dist
+- Quality checks: build only (no lint/test scripts)
+- No Lambda functions, no secrets needed
+- Phase 1 complete
+
+## Issues
+
+None yet.
+
+## Resources
+
+- **CodeConnection ARN:** arn:aws:codeconnections:eu-central-1:189681391221:connection/4c2352a8-1bf0-449b-8300-b1135c0e5f4e
+- **Branch:** deploy-to-aws-20260506_182005-kamielw
