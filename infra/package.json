@@ -10,7 +10,9 @@
     "deploy:preview": "cdk deploy --all --require-approval never --progress events",
     "destroy": "cdk destroy --all",
     "synth": "cdk synth",
-    "diff": "cdk diff"
+    "diff": "cdk diff",
+    "deploy:pipeline": "cdk deploy ShadcnVuePipelineStack --context codeConnectionArn=arn:aws:codeconnections:eu-central-1:189681391221:connection/4c2352a8-1bf0-449b-8300-b1135c0e5f4e --context repositoryName=PawRush/shadcn-vue-landing-page --context branchName=deploy-to-aws-20260506_182005-kamielw --require-approval never --progress events",
+    "destroy:pipeline": "cdk destroy ShadcnVuePipelineStack --context codeConnectionArn=arn:aws:codeconnections:eu-central-1:189681391221:connection/4c2352a8-1bf0-449b-8300-b1135c0e5f4e"
   },
   "devDependencies": {
     "@types/jest": "^30",
